@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Stagiaire</title>
+</head>
+<body>
+
+    <h1>Inscription d'un stagiaire</h1>
+
+    <form action="api/inscrire.php"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <label>Nom :</label>
+        <input type="text" name="nom" required>
+
+        <br><br>
+
+        <label>Prénom :</label>
+        <input type="text" name="prenom" required>
+
+        <br><br>
+
+        <label>Ville :</label>
+        <input type="text" name="ville" required>
+
+        <br><br>
+
+        <label>Photo :</label>
+        <input type="file" name="photo"
+               accept="image/*" required>
+
+        <br><br>
+
+        <button type="submit">S'inscrire</button>
+
+    </form>
+
+</body>
+</html>

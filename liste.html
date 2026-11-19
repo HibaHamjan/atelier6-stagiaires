@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des stagiaires</title>
+</head>
+<body>
+
+    <h1>Liste des stagiaires</h1>
+
+    <div id="liste"></div>
+
+    <script>
+        fetch('api/liste.php')
+            .then(response => response.json())
+            .then(stagiaires => {
+                const liste = document.getElementById('liste');
+
+                stagiaires.forEach(stagiaire => {
+                    liste.innerHTML += `
+                        <div>
+                            <h3>${stagiaire.nom} ${stagiaire.prenom}</h3>
+                            <p>Ville : ${stagiaire.ville}</p>
+                            <img src="${stagiaire.photo}" width="150">
+                        </div>
+                        <hr>
+                    `;
+                });
+            })
+            .catch(error => {
+                document.getElementById('liste').textContent =
+                    'Erreur lors du chargement des stagiaires.';
+            });
+    </script>
+
+</body>
+</html>
