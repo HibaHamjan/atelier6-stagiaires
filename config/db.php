@@ -3,8 +3,7 @@
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-// Charger les variables du fichier .env
-$dotenv = Dotenv\Dotenv::createUnsafeImmutable(dirname(__DIR__));
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->safeLoad();
 
 function getDatabase(): PDO
@@ -37,5 +36,3 @@ function getDatabase(): PDO
 
     return new PDO($dsn, $user, $password, $options);
 }
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-$dotenv->load();
